@@ -1,24 +1,24 @@
-# Object-Detection-using-YOLO-v4
-In this project, I'm gonna use YOLO to detect objects when driving, it can be used for self-driving car applications.
+# Object Tracking Overview
+Object tracking is an important and practical topic that has a very long history and has been applied to numerous fields. At a high level, tracking refers to estimating the state of an object (e.g., position and velocity) based on sensor measurements, and predicting its future location. For example, tracking the location of an aircraft based on radar measurements is a typical application of tracking. In the context of computer vision, tracking typically refers to processing video frames and predicting the location of an object (or multiple objects), in future video frames.
 
-Compared to other neural networks, YOLO is unique because it detects objects by looking at the overall scene (image or video) as a whole, instead of analyzing individual regions at a time. This results in some level of tradeoff for speed over precision. Despite this, YOLO is one of the most powerful realtime object detection architectures today, and is ideal to power the vision behind driverless cars.
+In computer vision, this is accomplished using a motion model and an appearance model. The motion model will estimate the position and velocity of an object and use that information to predict the location of an object in future video frames and the appearance model encodes what the object looks like and then search the region around the predicted location from the motion model to then fine-tune the location of the object. So the motion model is an approximation to where the object might be located in a future video frame and the appearance model is used to fine-tune that estimate.
 
-When trained, YOLO learns a generalized representation of the class of objects - meaning it is likely to perform well when presented with an unfamiliar representation of the object (shadowed, eclipsed, etc), and not get thrown off when there are other unexpected objects in the scene. This is because, by definition, it was trained to identify objects when considering the scene has a whole.
-Detecting facial landmarks has numerous applications including drowsy driver detection, emotion detection, virtual makeup, and HCI applications to ease communication for disabled people, to name a few. Facial feature detection is also referred to as “facial landmark detection”, “facial keypoint detection”, and “face alignment” 
+## Tracking Models Available in the OpenCV Tracker Class
+OpenCV contains an API Tracker Class that includes several different tracker models which are all based on different algorithms. Depending on the application one model might be better suited than another. 
 
-## YOLO with OpenCV
-Here are a few reasons you may want to use OpenCV for YOLO:
+- BOOSTING
+- CSRT
+- KCF
+- MEDIANFLOW
+- MIL
+- MOSSE
+- TLD
 
-Easy integration with an OpenCV application: If your application already uses OpenCV and you simply want to use YOLOv4, you don’t have to worry about compiling and building the extra Darknet code.
-OpenCV CPU version is 9x faster: OpenCV’s CPU implementation of the DNN module is astonishingly fast. For example, Darknet when used with OpenMP takes about 2 seconds on a CPU for inference on a single image. In contrast, OpenCV’s implementation runs in a mere 0.22 seconds! Check out table below.
-Python support: Darknet is written in C, and it does not officially support Python. In contrast, OpenCV does. There are python ports available for Darknet though.
-
-## More about YOLO
-https://github.com/AlexeyAB/darknet
+More details at: https://docs.opencv.org/4.5.2/d0/d0a/classcv_1_1Tracker.html
 
 ## Output Sample
 
+<img width="966" alt="Screen Shot 2022-01-17 at 10 52 32 PM" src="https://user-images.githubusercontent.com/42128166/149892152-c9c0fbaf-41d9-471f-97c0-5d7b4e5cb42d.png">
 
-
-(Video Source: https://www.pexels.com/video/vehicles-on-the-road-5274079/)
+(Video Source: https://www.pexels.com/video/drone-footage-of-a-person-riding-a-bicycle-5619700/)
 
